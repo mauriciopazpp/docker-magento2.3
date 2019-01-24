@@ -1,0 +1,38 @@
+version: '2'
+services:
+  server:
+    image: mauricio/magento2
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/var/www/html
+      - ~/.composer:/var/www/.composer
+      - ./magento.conf:/etc/apache2/sites-enabled/magento.conf
+    depends_on:
+      - database
+    links:
+      - database
+    networks:
+      - -network
+
+  database:
+    image: mariadb
+    ports:
+     - 3300:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=magento
+      - MYSQL_USER=magento
+      - MYSQL_PASSWORD=magento
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - -network
+
+networks:
+  -network:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local
