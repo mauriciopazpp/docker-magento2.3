@@ -1,7 +1,7 @@
 version: '2'
 services:
   server:
-    image: mauricio/magento2
+    image: mauriciopazp/magento2
     ports:
       - "80:80"
     volumes:
