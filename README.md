@@ -3,12 +3,17 @@
 Clone this repository
 
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 To install magento, run:
 ```
 docker-compose exec --user www-data server bash -c 'mkdir magento; cd magento; install-magento2'
+```
+
+To access the docker:
+```
+docker exec -ti docker-magento_server_1 bash
 ```
 
 If you want, enter your vhost configuration in the file `magento.conf`
