@@ -26,5 +26,5 @@ chmod u+w -R ./var ./vendor ./pub/static ./pub/media ./app/etc \
 cp ~/.composer/auth.json var/composer_home/auth.json \
 && php -f ./bin/magento sampledata:deploy \
 && php -f ./bin/magento setup:upgrade \
-&& php -f ./bin/magento cache:flush;
+&& php -f ./bin/magento cache:flush \
 && composer dumpa -o
