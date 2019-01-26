@@ -13,7 +13,7 @@ docker-compose exec --user www-data server bash -c 'mkdir magento; cd magento; i
 
 To access the docker:
 ```
-docker exec -ti docker-magento_server_1 bash
+docker exec -ti docker-magento2_server_1 bash
 ```
 
 If you want, enter your vhost configuration in the file `magento.conf`
