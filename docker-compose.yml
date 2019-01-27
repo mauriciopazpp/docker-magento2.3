@@ -29,6 +29,18 @@ services:
     networks:
       - -network
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+     - PMA_HOST=database
+     - PMA_USER=root
+     - PMA_PASSWORD=root
+     - MYSQL_ROOT_PASSWORD=root
+    ports:
+     - 8080:80
+    networks:
+      - -network
+
 networks:
   -network:
     driver: bridge
