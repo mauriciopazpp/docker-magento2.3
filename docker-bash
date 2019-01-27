@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker exec -ti docker-magento2_server_1 bash
