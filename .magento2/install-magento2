@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+clear
 echo -e "\033[42;1;37m \033[0m Clonning magento 2..."
 if [ $@ ]; then
   composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition:$1 . ;
