@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo -e "\033[42;1;37m \033[0m Clonning magento 2..."
 if [ $@ ]; then
   composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition:$1 . ;
 else
@@ -6,23 +7,35 @@ else
 fi
 chmod u+w -R ./var ./vendor ./pub/static ./pub/media ./app/etc \
 && chmod u+x ./bin/magento \
-&& php -f ./bin/magento setup:install --base-url=http://localhost/ \
-    --db-host=database \
-    --db-name=magento \
-    --db-user=magento \
-    --db-password=magento \
-    --admin-firstname=Magento \
-    --admin-lastname=Commerce \
-    --admin-email=user@example.com \
-    --admin-user=admin \
-    --admin-password=admin123 \
-    --language=en_US \
-    --currency=USD \
-    --timezone=America/Chicago \
-    --use-rewrites=1 \
-    --backend-frontname=admin \
+&& echo -e "\033[44;1;37m \033[0m Setting magento installer and creating admin user..." \
+&& php -f bin/magento setup:install --base-url="http://localhost/" \
+--db-host="database" \
+--db-name="magento" \
+--db-user="magento" \
+--db-password="magento" \
+--admin-firstname="Magento" \
+--admin-lastname="Commerce" \
+--admin-email="user@example.com" \
+--admin-user="admin" \
+--admin-password="admin123" \
+--language="en_US" \
+--currency="USD" \
+--timezone="America/Chicago" \
+--use-rewrites="1" \
+--backend-frontname="admin" &&
 cp ~/.composer/auth.json var/composer_home/auth.json \
+&& echo -e "\033[44;1;37m \033[0m Instalilng sampledata..." \
 && php -f ./bin/magento sampledata:deploy \
+&& echo -e "\033[44;1;37m \033[0m Executing setup:upgrade..." \
 && php -f ./bin/magento setup:upgrade \
+&& echo -e "\033[44;1;37m \033[0m Cleaning the room..." \
 && php -f ./bin/magento cache:flush;
-&& composer dump-autoload
+echo -e "\033[44;1;37m \033[0m Dumping autoload by composer..." \
+composer dump-autoload -o \
+&& echo -e "\033[44;1;37m \033[0m Done!!
+
+Admin: http://localhost/admin
+User: admin
+Password: admin123
+
+Have fun!"

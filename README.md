@@ -23,5 +23,7 @@ Open in the browser
 http://localhost
 ```
 
+```
 User: admin
 Pass: admin123
+```
