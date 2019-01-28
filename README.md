@@ -11,7 +11,7 @@ git clone git@github.com:mauriciopazpp/docker-magento2.git
 Avaliable comands to use this Docker Image:
 ```js
 ./docker-up //Run the docker
-./docker-kill //Kill all the instances of docker
+./docker-kill //Kill all the instances
 ./docker-bash //Access the Image
 ./docker-install-magento //Install magento 2 on Image. Tip: You can type the version after the command, ex: 2.2
 ```
