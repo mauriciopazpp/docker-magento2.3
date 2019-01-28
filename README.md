@@ -9,7 +9,7 @@ git clone git@github.com:mauriciopazpp/docker-magento2.git
 ```
 
 Avaliable comands to use this Docker Image:
-```
+```js
 ./docker-up //Run the docker
 ./docker-kill //Kill all the instances of docker
 ./docker-bash //Access the Image
