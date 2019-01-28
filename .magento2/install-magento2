@@ -30,6 +30,7 @@ cp ~/.composer/auth.json var/composer_home/auth.json \
 && echo -e "\033[44;1;37m \033[0m Executing setup:upgrade..." \
 && php -f ./bin/magento setup:upgrade \
 && echo -e "\033[44;1;37m \033[0m Cleaning the room..." \
+&& php -f ./bin/magento deploy:mode:set production \
 && php -f ./bin/magento cache:flush;
 echo -e "\033[44;1;37m \033[0m Dumping autoload by composer..." \
 composer dump-autoload -o \
