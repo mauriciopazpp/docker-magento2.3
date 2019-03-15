@@ -1,5 +1,5 @@
 ![Magento 2](https://cdn-images-1.medium.com/max/1400/1*bUVzeE00N3BgQO9qJNQdPw.jpeg)
-## Docker php7.2 + Magento 2 + phpmyadmin + Installer magento 2 script
+## Docker php7.2 + Magento 2.3 + phpmyadmin + Installer magento 2 script
 
 ### Docker hub
 https://hub.docker.com/r/mauriciopazp/magento2
